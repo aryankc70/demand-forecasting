@@ -26,4 +26,8 @@ reliably as lag information decays. Practical takeaway — horizon should
 drive model choice, and a production system might use XGBoost for
 short-term operational forecasts and SARIMA for longer-range planning.
 
-
+**Lag experiment:** adding a 6-month lag feature improved 1mo MAPE
+(4.21% → 3.90%) but *worsened* the 6mo horizon (4.84% → 5.36%) — the
+opposite of the intent. With only ~80 training rows, the extra feature
+likely adds noise rather than signal at long range. Kept the change
+documented as a negative result.

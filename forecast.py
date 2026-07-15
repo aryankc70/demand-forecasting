@@ -18,7 +18,7 @@ def load_data() -> pd.Series:
 
 def make_features(s: pd.Series) -> pd.DataFrame:
     df = pd.DataFrame({"y": s})
-    for lag in (1, 2, 3, 12):
+    for lag in (1, 2, 3, 6, 12):
         df[f"lag_{lag}"] = s.shift(lag)
     df["rolling_3"] = s.shift(1).rolling(3).mean()
     df["month"] = s.index.month
